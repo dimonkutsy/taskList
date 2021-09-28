@@ -4,9 +4,9 @@ function ToDoForm({ addTask }) {
     const [userInput, setUserInput] = useState('')
 
     const handleChange = (e) => {
-        setUserInput(e.currentTarget.value)
+        setUserInput(e.target.value)
     }
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
         addTask(userInput)
@@ -14,21 +14,24 @@ function ToDoForm({ addTask }) {
     }
 
     const handleKeyPress = (e) => {
-        if(e.key === "Enter") {
+        if(e.key === "Enter" && userInput.length !== 0) {
             handleSubmit(e)
         }
     }
-    
+
     return (
         <form onSubmit={handleSubmit}>
-            <input 
+            <input
                 value={userInput}
                 type="text"
                 onChange={handleChange}
                 onKeyDown={handleKeyPress}
                 placeholder="Введите значение..."
-            />        
-            <button>Сохранить</button>
+            />
+            <button
+              disabled={!userInput.length}>
+              Сохранить
+            </button>
         </form>
     )
 }
