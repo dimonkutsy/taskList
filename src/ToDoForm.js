@@ -8,6 +8,7 @@ function ToDoForm({ addTask }) {
   }
 
   const handleSubmit = e => {
+    console.log('awdawd')
     e.preventDefault()
     addTask(userInput)
     setUserInput('')
@@ -28,7 +29,7 @@ function ToDoForm({ addTask }) {
         onKeyDown={handleKeyPress}
         placeholder='Введите значение...'
       />
-      <button type='button' disabled={!userInput.length}>
+      <button type='submit' disabled={!userInput.length}>
         Сохранить
       </button>
     </form>
