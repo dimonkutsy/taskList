@@ -15,14 +15,21 @@ function App() {
   }
 
   const removeTask = id => {
-    setTodos([...todos.filter(todo => todo.id !== id)])
+    const updatedTodos = [...todos.filter(todo => todo.id !== id)]
+    setTodos(updatedTodos)
   }
 
   const handleToggle = id => {
     setTodos([
-      ...todos.map(todo =>
-        todo.id === id ? { ...todo, complete: !todo.complete } : { ...todo }
-      ),
+      ...todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            complete: !todo.complete,
+          }
+        }
+        return todo
+      }),
     ])
   }
 
