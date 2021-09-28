@@ -1,14 +1,19 @@
 const ToDo = ({ todo: { id, complete, task }, toggleTask, removeTask }) => (
-  <div key={id} className="item-todo">
-    <div
-      className={complete ? "item-text strike" : "item-text"}
+  <div key={id} className='item-todo'>
+    <button
+      type='button'
+      className={complete ? 'item-text strike' : 'item-text'}
       onClick={() => toggleTask(id)}
-      >
+    >
       {task}
-    </div>
-    <div className="item-delete" onClick={() => removeTask(id)}>
+    </button>
+    <button
+      type='button'
+      className='item-delete'
+      onClick={() => removeTask(id)}
+    >
       X
-    </div>
+    </button>
   </div>
 )
 
